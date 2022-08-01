@@ -1,2 +1,2 @@
-export * from './Logger.interface';
+export * from './Logger.service.interface';
 export * from './Logger.service';

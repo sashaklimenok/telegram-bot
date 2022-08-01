@@ -1,18 +1,26 @@
 import { config, DotenvConfigOutput, DotenvParseOutput } from 'dotenv';
 import { inject, injectable } from 'inversify';
 import { injectKeys } from '../../types/injectKeys';
-import { ILogger } from '../Logger';
+import { ILoggerService } from '../Logger';
 import { IConfigService } from './Config.service.interface';
+import { resolve, join } from 'path';
+import { homedir } from 'os';
+import { IChalkService } from '../Chalk';
 
 @injectable()
 export class ConfigService implements IConfigService {
 	private config: DotenvParseOutput;
-	constructor(@inject(injectKeys.ILogger) private logger: ILogger) {
-		const result: DotenvConfigOutput = config();
+	constructor(
+		@inject(injectKeys.ILoggerService) private loggerService: ILoggerService,
+		@inject(injectKeys.IChalkService) private chalkService: IChalkService,
+	) {
+		const result: DotenvConfigOutput = config({ path: join(resolve(), 'env/.env') });
 		if (result.error) {
-			this.logger.error('[ConfigService] Can not read .env');
+			this.loggerService.error(`${this.chalkService.highlight('[ConfigService]')} Can not read .env`);
 		} else {
-			this.logger.info('[ConfigService] The configuration of .env has been loaded');
+			this.loggerService.info(
+				`${this.chalkService.highlight('[ConfigService]')} The configuration of .env has been loaded`,
+			);
 			this.config = result.parsed as DotenvParseOutput;
 		}
 	}

@@ -1,16 +1,16 @@
 import { inject, injectable } from 'inversify';
-import { ILogger } from './services';
+import { ILoggerService } from './services';
 import { IConfigService } from './services/Config';
 import { injectKeys } from './types/injectKeys';
 
 @injectable()
 export class App {
 	constructor(
-		@inject(injectKeys.ILogger) private logger: ILogger,
+		@inject(injectKeys.ILoggerService) private loggerService: ILoggerService,
 		@inject(injectKeys.IConfigService) private configService: IConfigService,
 	) {}
 
 	init(): void {
-		this.logger.info('Initialize', this.configService.get('BOT_TOKEN'));
+		this.loggerService.info('Initialize', this.configService.get('BOT_TOKEN'));
 	}
 }
