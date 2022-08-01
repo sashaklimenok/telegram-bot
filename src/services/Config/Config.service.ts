@@ -16,10 +16,14 @@ export class ConfigService implements IConfigService {
 	) {
 		const result: DotenvConfigOutput = config({ path: join(resolve(), 'env/.env') });
 		if (result.error) {
-			this.loggerService.error(`${this.chalkService.highlight('[ConfigService]')} Can not read .env`);
+			this.loggerService.error(
+				`${this.chalkService.highlight('[ConfigService]')} Can not read .env`,
+			);
 		} else {
 			this.loggerService.info(
-				`${this.chalkService.highlight('[ConfigService]')} The configuration of .env has been loaded`,
+				`${this.chalkService.highlight(
+					'[ConfigService]',
+				)} The configuration of .env has been loaded`,
 			);
 			this.config = result.parsed as DotenvParseOutput;
 		}
