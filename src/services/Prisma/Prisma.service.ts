@@ -20,7 +20,7 @@ export class PrismaService implements IPrismaService {
 			await this.client.$connect();
 			this.loggerService.info(
 				this.chalkService.highlight('[PrismaService connection]'),
-				'Connect to DB',
+				'Connect to DB has been done',
 			);
 		} catch (error) {
 			if (error instanceof Error) {
@@ -38,7 +38,7 @@ export class PrismaService implements IPrismaService {
 			this.client.$disconnect();
 			this.loggerService.info(
 				this.chalkService.highlight('[PrismaService disconnection]'),
-				'Disconnect to DB',
+				'Disconnect from DB has been failed',
 			);
 		} catch (error) {
 			if (error instanceof Error) {
