@@ -1,6 +1,9 @@
-import { BotEvent } from './types';
+import { Context } from 'telegraf';
+
+export type callbackType = (ctx: Context) => void;
 
 export interface ITelegrafService {
-	registerEvents(listeners: BotEvent[]): void;
+	onText(callback: callbackType): void;
+	command(cmd: string, callback: callbackType): void;
 	run(): void;
 }

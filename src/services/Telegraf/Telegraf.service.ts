@@ -1,9 +1,8 @@
-import { Telegraf } from 'telegraf';
+import { Context, Telegraf } from 'telegraf';
 import { inject, injectable } from 'inversify';
 import { injectKeys } from '../../types/injectKeys';
 import { IConfigService } from '../Config';
-import { ITelegrafService } from './Telegraf.interface';
-import { BotEvent } from './types';
+import { callbackType, ITelegrafService } from './Telegraf.interface';
 
 @injectable()
 export class TelegrafService implements ITelegrafService {
@@ -12,10 +11,14 @@ export class TelegrafService implements ITelegrafService {
 		this.bot = new Telegraf(this.config.get('BOT_TOKEN'));
 	}
 
-	registerEvents(listeners: BotEvent[]): void {
-		listeners.map(({ type, callback }) => {
-			this.bot.on(type, callback);
+	onText(callback: callbackType): void {
+		this.bot.on('text', (ctx) => {
+			callback(ctx);
 		});
+	}
+
+	command(cmd: string, callback: callbackType): void {
+		this.bot.command(cmd, callback);
 	}
 
 	run(): void {
