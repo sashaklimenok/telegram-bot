@@ -1,8 +1,8 @@
-import { Context, Telegraf } from 'telegraf';
+import { Telegraf } from 'telegraf';
 import { inject, injectable } from 'inversify';
 import { injectKeys } from '../../types/injectKeys';
-import { IConfigService } from '../Config';
-import { callbackType, ITelegrafService } from './Telegraf.interface';
+import { IConfigService } from '../config';
+import { callbackType, ITelegrafService } from './telegraf.interface';
 
 @injectable()
 export class TelegrafService implements ITelegrafService {
@@ -21,7 +21,7 @@ export class TelegrafService implements ITelegrafService {
 		this.bot.command(cmd, callback);
 	}
 
-	run(): void {
-		this.bot.launch();
+	async run(): Promise<void> {
+		await this.bot.launch();
 	}
 }

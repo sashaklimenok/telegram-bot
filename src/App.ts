@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
-import { IPrismaService } from './services/Prisma';
-import { ITelegrafService } from './services/Telegraf/Telegraf.interface';
+import { IPrismaService } from './services/prisma';
+import { ITelegrafService } from './services/telegraf/telegraf.interface';
 import { injectKeys } from './types/injectKeys';
 
 @injectable()

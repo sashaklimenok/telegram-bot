@@ -1,1 +1,1 @@
-export * from './Telegraf.service';
+export * from './telegraf.service';
