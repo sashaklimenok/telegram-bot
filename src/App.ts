@@ -18,7 +18,7 @@ export class App {
 
 	async init(): Promise<void> {
 		await this.prisma.connect();
-		this.bot.run();
+		await this.bot.run();
 		this.greetingUser();
 	}
 }
