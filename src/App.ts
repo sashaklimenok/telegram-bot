@@ -27,12 +27,20 @@ export class App {
     @inject(injectKeys.IConfigService) private config: IConfigService,
   ) {
     this.bot = new Telegraf<MyContext>(this.config.get('BOT_TOKEN'));
+    this.start = this.start.bind(this);
   }
 
   async start(ctx: MyContext): Promise<void> {
     await ctx.replyWithMarkdown('Form', {
       reply_markup: {
-        keyboard: [[{ text: 'Заполнить форму доставки' }]],
+        keyboard: [
+          [
+            {
+              text: 'Заполнить форму доставки',
+              web_app: { url: this.config.get('CLIENT_APP_URL') },
+            },
+          ],
+        ],
       },
     });
   }
