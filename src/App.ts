@@ -1,5 +1,5 @@
 import { inject, injectable } from 'inversify';
-import { IBot } from './modules/Bot/bot.interface';
+import { IBot } from './modules/bot/bot.interface';
 import { IPrismaService } from './services/prisma';
 import { injectKeys } from './types/injectKeys';
 
