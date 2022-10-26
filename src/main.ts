@@ -6,7 +6,7 @@ import { ChalkService, IChalkService } from './services/chalk';
 import { IPrismaService, PrismaService } from './services/prisma';
 import { ILoggerService, LoggerService } from './services/logger';
 import { App } from './App';
-import { IBot } from './modules/bot/bot.interface';
+import { IBot } from './modules/Bot/bot.interface';
 import { Bot } from './modules';
 
 //Composition root
