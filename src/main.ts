@@ -7,13 +7,13 @@ import { IPrismaService, PrismaService } from './services/prisma';
 import { ILoggerService, LoggerService } from './services/logger';
 import { ITelegrafService, TelegrafService } from './services/telegraf';
 import { IServerService, ServerService } from './services/server';
-import { App } from './app';
 import {
   CatalogController,
   ICatalogController,
   IShoppingCartController,
   ShoppingCartController,
 } from './modules';
+import { App } from './App';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
