@@ -1,11 +1,19 @@
 import 'reflect-metadata';
 import { Container, ContainerModule, interfaces } from 'inversify';
-import { injectKeys } from './types/injectKeys';
+import { injectKeys } from './types/global/injectKeys';
 import { ConfigService, IConfigService } from './services/config';
 import { ChalkService, IChalkService } from './services/chalk';
 import { IPrismaService, PrismaService } from './services/prisma';
 import { ILoggerService, LoggerService } from './services/logger';
-import { App } from './App';
+import { ITelegrafService, TelegrafService } from './services/telegraf';
+import { IServerService, ServerService } from './services/server';
+import { App } from './app';
+import {
+  CatalogController,
+  ICatalogController,
+  IShoppingCartController,
+  ShoppingCartController,
+} from './modules';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -14,6 +22,10 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<IConfigService>(injectKeys.IConfigService).to(ConfigService);
   bind<IChalkService>(injectKeys.IChalkService).to(ChalkService);
   bind<IPrismaService>(injectKeys.IPrismaService).to(PrismaService);
+  bind<ITelegrafService>(injectKeys.ITelegrafService).to(TelegrafService);
+  bind<IServerService>(injectKeys.IServerService).to(ServerService);
+  bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
+  bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
 });
 
 const bootstrap = (): Record<string, unknown> => {

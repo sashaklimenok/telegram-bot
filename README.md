@@ -3,6 +3,7 @@
 *.env file must contains*
 ```
 BOT_TOKEN = '[TOKEN FOR YOUR BOT]'
+CLIENT_APP_URL = '[URL your web-app]'
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 ```
 ### Run the next scripts
