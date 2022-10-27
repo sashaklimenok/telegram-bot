@@ -14,6 +14,7 @@ import {
   ShoppingCartController,
 } from './modules';
 import { App } from './App';
+import { IShoppingCartService, ShoppingCartService } from './modules/shopping-cart/service';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -26,6 +27,7 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<IServerService>(injectKeys.IServerService).to(ServerService);
   bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
   bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
+  bind<IShoppingCartService>(injectKeys.IShoppingCartService).to(ShoppingCartService);
 });
 
 const bootstrap = (): Record<string, unknown> => {

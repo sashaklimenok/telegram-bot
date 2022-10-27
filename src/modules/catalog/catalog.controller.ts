@@ -6,6 +6,7 @@ import { IChalkService } from '../../services/chalk';
 import { ILoggerService } from '../../services/logger';
 import { injectKeys } from '../../types';
 import { ICatalogController } from './catalog.interface';
+import { data } from './MOCK_DATA';
 
 @injectable()
 export class CatalogController extends Controller implements ICatalogController {
@@ -17,13 +18,13 @@ export class CatalogController extends Controller implements ICatalogController 
     this.bindRoutes([
       {
         path: routes.catalog,
-        method: 'post',
+        method: 'get',
         callback: this.getProducts,
       },
     ]);
   }
 
   getProducts(request: Request, response: Response, next: NextFunction): void {
-    console.log(request.body);
+    response.json(data);
   }
 }

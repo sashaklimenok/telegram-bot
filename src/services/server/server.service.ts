@@ -30,8 +30,8 @@ export class ServerService implements IServerService {
   }
 
   useRoutes(): void {
-    this.server.use(routes.catalog, this.catalog.router);
-    this.server.use(routes.shoppingCart, this.shopping.router);
+    this.server.use(this.catalog.router);
+    this.server.use(this.shopping.router);
   }
 
   run(): void {
@@ -43,7 +43,8 @@ export class ServerService implements IServerService {
   }
 
   start(): void {
-    this.useMiddleware();
     this.run();
+    this.useMiddleware();
+    this.useRoutes();
   }
 }

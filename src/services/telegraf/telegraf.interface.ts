@@ -1,4 +1,5 @@
 import { Context, Scenes, Telegraf } from 'telegraf';
+import { InlineQueryResult } from 'telegraf/typings/core/types/typegram';
 
 export interface MySessionScene extends Scenes.SceneSessionData {
   sessionSceneProps: string;
@@ -15,6 +16,7 @@ export interface MyContext extends Context {
 }
 
 export interface ITelegrafService {
-  launch(): Promise<void>;
   bot: Telegraf<MyContext>;
+  launch(): Promise<void>;
+  answerWebQuery(webAppQueryId: string, result: InlineQueryResult): Promise<void>;
 }

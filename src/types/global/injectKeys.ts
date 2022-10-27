@@ -8,4 +8,5 @@ export const injectKeys = {
   IServerService: Symbol.for('IServerService'),
   ICatalogController: Symbol.for('ICatalogController'),
   IShoppingCartController: Symbol.for('IShoppingCartController'),
+  IShoppingCartService: Symbol.for('IShoppingCartService'),
 };
