@@ -1,13 +1,13 @@
 import { inject, injectable } from 'inversify';
-import { injectKeys } from '../../types/global/injectKeys';
+import { injectKeys } from 'types/global/injectKeys';
 import { IConfigService } from '../config';
 import express, { Express, json } from 'express';
 import { ILoggerService } from '../logger';
 import { IChalkService } from '../chalk';
 import { IServerService } from './server.interface';
-import { routes } from '../../constants';
-import { ICatalogController, IShoppingCartController } from '../../modules';
+import { ICatalogController, IShoppingCartController } from 'modules';
 import cors from 'cors';
+import { IExceptionFilter } from '../../errors';
 
 @injectable()
 export class ServerService implements IServerService {
@@ -19,6 +19,7 @@ export class ServerService implements IServerService {
     @inject(injectKeys.IChalkService) private chalk: IChalkService,
     @inject(injectKeys.ICatalogController) private catalog: ICatalogController,
     @inject(injectKeys.IShoppingCartController) private shopping: IShoppingCartController,
+    @inject(injectKeys.IExceptionFilter) private exceptionFilter: IExceptionFilter,
   ) {
     this.server = express();
     this.port = Number(this.config.get('PORT'));
@@ -34,6 +35,10 @@ export class ServerService implements IServerService {
     this.server.use(this.shopping.router);
   }
 
+  useExceptionFilters(): void {
+    this.server.use(this.exceptionFilter.catch);
+  }
+
   run(): void {
     this.server.listen(this.port, () => {
       this.logger.info(
@@ -46,5 +51,6 @@ export class ServerService implements IServerService {
     this.run();
     this.useMiddleware();
     this.useRoutes();
+    this.useExceptionFilters();
   }
 }

@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import { fakeUser } from './mock-data/User.mjs';
+import { products } from './mock-data/products.mjs';
 
 const prisma = new PrismaClient();
 
 const seed = async () => {
-	await prisma.$connect();
-	await prisma.user.createMany({ data: fakeUser });
-	await prisma.$disconnect();
+  await prisma.$connect();
+  await prisma.product.createMany({ data: products });
+  await prisma.$disconnect();
 };
 
 seed();

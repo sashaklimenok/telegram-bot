@@ -15,6 +15,10 @@ import {
 } from './modules';
 import { App } from './App';
 import { IShoppingCartService, ShoppingCartService } from './modules/shopping-cart/service';
+import { ExceptionFilter, IExceptionFilter } from './errors';
+import { INumberService, NumberService } from 'services/number';
+import { CatalogService, ICatalogService } from 'modules/catalog/services';
+import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -28,6 +32,10 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
   bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
   bind<IShoppingCartService>(injectKeys.IShoppingCartService).to(ShoppingCartService);
+  bind<IExceptionFilter>(injectKeys.IExceptionFilter).to(ExceptionFilter);
+  bind<INumberService>(injectKeys.INumberService).to(NumberService);
+  bind<ICatalogService>(injectKeys.ICatalogService).to(CatalogService);
+  bind<IValidatorMiddleware>(injectKeys.IValidatorMiddleware).to(ValidatorMiddleware);
 });
 
 const bootstrap = (): Record<string, unknown> => {
