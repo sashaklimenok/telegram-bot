@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { Container, ContainerModule, interfaces } from 'inversify';
-import { injectKeys } from './types/global/injectKeys';
+import { injectKeys } from './types/injectKeys';
 import { ConfigService, IConfigService } from './services/config';
 import { ChalkService, IChalkService } from './services/chalk';
 import { IPrismaService, PrismaService } from './services/prisma';
@@ -19,6 +19,7 @@ import { ExceptionFilter, IExceptionFilter } from './errors';
 import { INumberService, NumberService } from 'services/number';
 import { CatalogService, ICatalogService } from 'modules/catalog/services';
 import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
+import { CatalogRepository, ICatalogRepository } from 'modules/catalog/repository';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -36,6 +37,7 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<INumberService>(injectKeys.INumberService).to(NumberService);
   bind<ICatalogService>(injectKeys.ICatalogService).to(CatalogService);
   bind<IValidatorMiddleware>(injectKeys.IValidatorMiddleware).to(ValidatorMiddleware);
+  bind<ICatalogRepository>(injectKeys.ICatalogRepository).to(CatalogRepository);
 });
 
 const bootstrap = (): Record<string, unknown> => {

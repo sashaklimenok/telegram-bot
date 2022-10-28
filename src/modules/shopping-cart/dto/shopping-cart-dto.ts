@@ -1,5 +1,5 @@
+import { Product } from '@prisma/client';
 import { IsArray, IsEmpty, IsString } from 'class-validator';
-import { Product } from 'types/products';
 
 export class ShoppingCartDto {
   @IsString({ message: 'queryId can not be empty' })

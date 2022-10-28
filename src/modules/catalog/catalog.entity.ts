@@ -1,5 +1,5 @@
+import { Product } from '@prisma/client';
 import { INumberService, NumberService } from 'services/number';
-import { Product } from 'types/products';
 
 export class CatalogEntity {
   numberService: INumberService;

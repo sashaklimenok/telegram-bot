@@ -13,4 +13,5 @@ export const injectKeys = {
   INumberService: Symbol.for('INumberService'),
   ICatalogService: Symbol.for('ICatalogService'),
   IValidatorMiddleware: Symbol.for('IValidatorMiddleware'),
+  ICatalogRepository: Symbol.for('ICatalogRepository'),
 };

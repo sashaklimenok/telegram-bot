@@ -1,4 +1,4 @@
-import { Product } from 'types/products';
+import { Product } from '@prisma/client';
 
 export interface IShoppingCartService {
   getTotalAmount(products: Product[]): void;

@@ -1,5 +1,5 @@
 import { inject, injectable } from 'inversify';
-import { injectKeys } from 'types/global/injectKeys';
+import { injectKeys } from 'types/injectKeys';
 import { IConfigService } from '../config';
 import express, { Express, json } from 'express';
 import { ILoggerService } from '../logger';

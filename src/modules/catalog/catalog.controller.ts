@@ -25,7 +25,8 @@ export class CatalogController extends Controller implements ICatalogController 
     ]);
   }
 
-  getProducts(request: Request, response: Response, next: NextFunction): void {
-    this.ok(response, this.catalog.getProducts());
+  async getProducts(request: Request, response: Response, next: NextFunction): Promise<void> {
+    const data = await this.catalog.getProducts();
+    this.ok(response, data);
   }
 }

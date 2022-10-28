@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 import { IPrismaService } from './services/prisma';
 import { IServerService } from './services/server';
 import { ITelegrafService } from './services/telegraf';
-import { injectKeys } from './types/global/injectKeys';
+import { injectKeys } from 'types/injectKeys';
 
 @injectable()
 export class App {

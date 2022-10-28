@@ -1,12 +1,15 @@
-import { injectable } from 'inversify';
-import { Product } from 'types/products';
+import { Product } from '@prisma/client';
+import { inject, injectable } from 'inversify';
+import { injectKeys } from 'types';
 import { CatalogEntity } from '../catalog.entity';
+import { ICatalogRepository } from '../repository';
 import { ICatalogService } from './catalog.service.interface';
-import { data } from './MOCK_DATA';
 
 @injectable()
 export class CatalogService implements ICatalogService {
-  getProducts(): Product[] {
+  constructor(@inject(injectKeys.ICatalogRepository) private repository: ICatalogRepository) {}
+  async getProducts(): Promise<Product[]> {
+    const data = await this.repository.getProducts();
     const { products } = new CatalogEntity(data);
     return products;
   }

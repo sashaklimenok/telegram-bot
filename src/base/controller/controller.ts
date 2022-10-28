@@ -1,8 +1,8 @@
 import { Response, Router } from 'express';
 import { inject, injectable } from 'inversify';
-import { IChalkService } from '../../services/chalk';
-import { ILoggerService } from '../../services/logger';
-import { injectKeys } from '../../types/global/injectKeys';
+import { IChalkService } from 'services/chalk';
+import { ILoggerService } from 'services/logger';
+import { injectKeys } from 'types/injectKeys';
 import { IController, IRoute } from './controller.interface';
 
 @injectable()

@@ -51,20 +51,11 @@ datasource db {
 //   updatedAt DateTime @updatedAt()
 // }
 
-model ProductRating {
-  id      Int       @id @default(autoincrement())
-  rate    Int
-  count   Int
-  Product Product[]
-}
-
 model Product {
-  id          Int           @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   title       String
-  price       Int
+  price       Float
   description String
   category    String
   image       String
-  ratingId    Int
-  rating      ProductRating @relation(fields: [ratingId], references: [id])
 }

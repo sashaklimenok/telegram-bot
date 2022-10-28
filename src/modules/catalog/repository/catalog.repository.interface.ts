@@ -1,5 +1,5 @@
 import { Product } from '@prisma/client';
 
-export interface ICatalogService {
+export interface ICatalogRepository {
   getProducts(): Promise<Product[]>;
 }

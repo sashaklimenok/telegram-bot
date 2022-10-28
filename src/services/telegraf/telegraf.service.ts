@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify';
 import { Markup, Telegraf } from 'telegraf';
 import { InlineQueryResult } from 'telegraf/typings/core/types/typegram';
-import { injectKeys } from '../../types/global/injectKeys';
+import { injectKeys } from 'types/injectKeys';
 import { IConfigService } from '../config';
 import { ITelegrafService, MyContext } from './telegraf.interface';
 

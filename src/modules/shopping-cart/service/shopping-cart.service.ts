@@ -1,5 +1,5 @@
+import { Product } from '@prisma/client';
 import { injectable } from 'inversify';
-import { Product } from 'types/products';
 import { IShoppingCartService } from './shopping-cart.service.interface';
 
 @injectable()
