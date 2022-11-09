@@ -10,7 +10,6 @@ export const injectKeys = {
   IShoppingCartController: Symbol.for('IShoppingCartController'),
   IShoppingCartService: Symbol.for('IShoppingCartService'),
   IExceptionFilter: Symbol.for('IExceptionFilter'),
-  INumberService: Symbol.for('INumberService'),
   ICatalogService: Symbol.for('ICatalogService'),
   IValidatorMiddleware: Symbol.for('IValidatorMiddleware'),
   ICatalogRepository: Symbol.for('ICatalogRepository'),

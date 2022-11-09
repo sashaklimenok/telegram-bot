@@ -6,7 +6,7 @@ import { ILoggerService } from '../logger';
 import { IChalkService } from '../chalk';
 import { IServerService } from './server.interface';
 import cors from 'cors';
-import { IExceptionFilter } from '../../infostructure/errors';
+import { IExceptionFilter } from '../../infrastructure/errors';
 import { ICatalogController } from 'controllers/catalog';
 import { IShoppingCartController } from 'controllers/shopping-cart';
 

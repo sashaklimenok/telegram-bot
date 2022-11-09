@@ -1,16 +1,13 @@
 import { Product } from '@prisma/client';
-import { INumberService, NumberService } from 'services/number';
+import { NumberLib } from 'infrastructure/libs/number';
 
 export class CatalogEntity {
-  numberService: INumberService;
-  constructor(private _products: Product[]) {
-    this.numberService = new NumberService();
-  }
+  constructor(private _products: Product[]) {}
 
   mapProducts(): Product[] {
     return this._products.map((item) => ({
       ...item,
-      price: this.numberService.roundToHundredths(item.price),
+      price: NumberLib.roundToHundredths(item.price),
     }));
   }
 

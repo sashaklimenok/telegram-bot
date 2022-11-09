@@ -15,9 +15,8 @@ import {
   ICatalogService,
 } from './controllers/catalog';
 import { App } from './App';
-import { ExceptionFilter, IExceptionFilter } from './infostructure/errors';
-import { INumberService, NumberService } from 'services/number';
-import { IValidatorMiddleware, ValidatorMiddleware } from 'infostructure/middlewares';
+import { ExceptionFilter, IExceptionFilter } from './infrastructure/errors';
+import { IValidatorMiddleware, ValidatorMiddleware } from 'infrastructure/middlewares';
 import { IShoppingCartService } from 'controllers/shopping-cart/interfaces/shopping-cart.service.interface';
 import { ShoppingCartService } from 'controllers/shopping-cart/shopping-cart.service';
 import { IShoppingCartController, ShoppingCartController } from 'controllers/shopping-cart';
@@ -38,7 +37,6 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
   bind<IShoppingCartService>(injectKeys.IShoppingCartService).to(ShoppingCartService);
   bind<IExceptionFilter>(injectKeys.IExceptionFilter).to(ExceptionFilter);
-  bind<INumberService>(injectKeys.INumberService).to(NumberService);
   bind<IValidatorMiddleware>(injectKeys.IValidatorMiddleware).to(ValidatorMiddleware);
 });
 
