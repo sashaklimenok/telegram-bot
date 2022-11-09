@@ -5,7 +5,7 @@ import express, { Express, json } from 'express';
 import { ILoggerService } from '../logger';
 import { IChalkService } from '../chalk';
 import { IServerService } from './server.interface';
-import { ICatalogController, IShoppingCartController } from 'modules';
+import { ICatalogController, IShoppingCartController } from 'controllers';
 import cors from 'cors';
 import { IExceptionFilter } from '../../errors';
 

@@ -12,14 +12,14 @@ import {
   ICatalogController,
   IShoppingCartController,
   ShoppingCartController,
-} from './modules';
+} from './controllers';
 import { App } from './App';
-import { IShoppingCartService, ShoppingCartService } from './modules/shopping-cart/service';
+import { IShoppingCartService, ShoppingCartService } from './controllers/shopping-cart/service';
 import { ExceptionFilter, IExceptionFilter } from './errors';
 import { INumberService, NumberService } from 'services/number';
-import { CatalogService, ICatalogService } from 'modules/catalog/services';
+import { CatalogService, ICatalogService } from 'controllers/catalog/services';
 import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
-import { CatalogRepository, ICatalogRepository } from 'modules/catalog/repository';
+import { CatalogRepository, ICatalogRepository } from 'controllers/catalog/repository';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
