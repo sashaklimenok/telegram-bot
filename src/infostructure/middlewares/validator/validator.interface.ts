@@ -1,4 +1,4 @@
-import { ExpressHandler } from '../../types';
+import { ExpressHandler } from '../../../types';
 import { ClassConstructor } from 'class-transformer';
 
 export interface IValidatorMiddleware {

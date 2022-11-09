@@ -15,9 +15,9 @@ import {
   ICatalogService,
 } from './controllers/catalog';
 import { App } from './App';
-import { ExceptionFilter, IExceptionFilter } from './errors';
+import { ExceptionFilter, IExceptionFilter } from './infostructure/errors';
 import { INumberService, NumberService } from 'services/number';
-import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
+import { IValidatorMiddleware, ValidatorMiddleware } from 'infostructure/middlewares';
 import { IShoppingCartService } from 'controllers/shopping-cart/interfaces/shopping-cart.service.interface';
 import { ShoppingCartService } from 'controllers/shopping-cart/shopping-cart.service';
 import { IShoppingCartController, ShoppingCartController } from 'controllers/shopping-cart';

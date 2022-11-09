@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { Controller } from 'base';
-import { routes } from '../../constants';
+import { Controller } from 'infostructure/base-classes';
+import { routes } from '../../infostructure/constants';
 import { IChalkService } from 'services/chalk';
 import { ILoggerService } from 'services/logger';
 import { injectKeys } from 'types';

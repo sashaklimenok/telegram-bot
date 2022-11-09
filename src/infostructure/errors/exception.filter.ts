@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { IChalkService } from '../services/chalk';
-import { ILoggerService } from '../services/logger';
-import { injectKeys } from '../types';
+import { IChalkService } from '../../services/chalk';
+import { ILoggerService } from '../../services/logger';
+import { injectKeys } from '../../types';
 import { IExceptionFilter } from './exception.filter.interface';
 import { HTTPError } from './http-errors';
 

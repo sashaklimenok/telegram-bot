@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { Controller } from 'base';
+import { Controller } from 'infostructure/base-classes';
 import { IChalkService } from 'services/chalk';
 import { ILoggerService } from 'services/logger';
 import { injectKeys } from 'types';
 import { IShoppingCartController } from './interfaces/shopping-cart.interface';
-import { routes } from '../../constants';
-import { IValidatorMiddleware } from 'middlewares';
+import { routes } from '../../infostructure/constants';
+import { IValidatorMiddleware } from 'infostructure/middlewares';
 import { ShoppingCartDto } from './shopping-cart-dto';
 import { IShoppingCartService } from './interfaces';
 import { ITGBotController } from 'controllers/tg-bot';

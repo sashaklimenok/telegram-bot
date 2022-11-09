@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction, Router } from 'express';
-import { ExpressHandler } from '../../types';
+import { ExpressHandler } from '../../../types';
 
 export interface IRoute {
   path: string;
