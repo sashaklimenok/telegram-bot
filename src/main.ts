@@ -24,12 +24,12 @@ import { CatalogRepository, ICatalogRepository } from 'modules/catalog/repositor
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<App>(injectKeys.Application).to(App);
-  bind<ILoggerService>(injectKeys.ILoggerService).to(LoggerService);
-  bind<IConfigService>(injectKeys.IConfigService).to(ConfigService);
-  bind<IChalkService>(injectKeys.IChalkService).to(ChalkService);
-  bind<IPrismaService>(injectKeys.IPrismaService).to(PrismaService);
+  bind<ILoggerService>(injectKeys.ILoggerService).to(LoggerService).inSingletonScope();
+  bind<IConfigService>(injectKeys.IConfigService).to(ConfigService).inSingletonScope();
+  bind<IChalkService>(injectKeys.IChalkService).to(ChalkService).inSingletonScope();
+  bind<IPrismaService>(injectKeys.IPrismaService).to(PrismaService).inSingletonScope();
+  bind<IServerService>(injectKeys.IServerService).to(ServerService).inSingletonScope();
   bind<ITelegrafService>(injectKeys.ITelegrafService).to(TelegrafService);
-  bind<IServerService>(injectKeys.IServerService).to(ServerService);
   bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
   bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
   bind<IShoppingCartService>(injectKeys.IShoppingCartService).to(ShoppingCartService);
