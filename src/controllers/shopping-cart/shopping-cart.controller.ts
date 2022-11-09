@@ -3,20 +3,20 @@ import { inject, injectable } from 'inversify';
 import { Controller } from 'base';
 import { IChalkService } from 'services/chalk';
 import { ILoggerService } from 'services/logger';
-import { ITelegrafService } from 'services/telegraf';
 import { injectKeys } from 'types';
 import { IShoppingCartController } from './interfaces/shopping-cart.interface';
 import { routes } from '../../constants';
 import { IValidatorMiddleware } from 'middlewares';
 import { ShoppingCartDto } from './shopping-cart-dto';
 import { IShoppingCartService } from './interfaces';
+import { ITGBotController } from 'controllers/tg-bot';
 
 @injectable()
 export class ShoppingCartController extends Controller implements IShoppingCartController {
   constructor(
     @inject(injectKeys.ILoggerService) logger: ILoggerService,
     @inject(injectKeys.IChalkService) chalk: IChalkService,
-    @inject(injectKeys.ITelegrafService) private telegraf: ITelegrafService,
+    @inject(injectKeys.ITGBOTService) private telegraf: ITGBotController,
     @inject(injectKeys.IShoppingCartService) private shoppingCartService: IShoppingCartService,
     @inject(injectKeys.IValidatorMiddleware) private validator: IValidatorMiddleware,
   ) {

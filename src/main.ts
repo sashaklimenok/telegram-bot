@@ -5,7 +5,6 @@ import { ConfigService, IConfigService } from './services/config';
 import { ChalkService, IChalkService } from './services/chalk';
 import { IPrismaService, PrismaService } from './services/prisma';
 import { ILoggerService, LoggerService } from './services/logger';
-import { ITelegrafService, TelegrafService } from './services/telegraf';
 import { IServerService, ServerService } from './services/server';
 import {
   CatalogController,
@@ -22,6 +21,7 @@ import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
 import { IShoppingCartService } from 'controllers/shopping-cart/interfaces/shopping-cart.service.interface';
 import { ShoppingCartService } from 'controllers/shopping-cart/shopping-cart.service';
 import { IShoppingCartController, ShoppingCartController } from 'controllers/shopping-cart';
+import { TGBotController } from 'controllers/tg-bot';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -31,7 +31,7 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<IChalkService>(injectKeys.IChalkService).to(ChalkService).inSingletonScope();
   bind<IPrismaService>(injectKeys.IPrismaService).to(PrismaService).inSingletonScope();
   bind<IServerService>(injectKeys.IServerService).to(ServerService).inSingletonScope();
-  bind<ITelegrafService>(injectKeys.ITelegrafService).to(TelegrafService);
+  bind<TGBotController>(injectKeys.ITGBOTService).to(TGBotController);
   bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
   bind<ICatalogService>(injectKeys.ICatalogService).to(CatalogService);
   bind<ICatalogRepository>(injectKeys.ICatalogRepository).to(CatalogRepository);

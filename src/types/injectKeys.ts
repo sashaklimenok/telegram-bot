@@ -4,7 +4,7 @@ export const injectKeys = {
   IConfigService: Symbol.for('IConfigService'),
   IChalkService: Symbol.for('IChalkService'),
   IPrismaService: Symbol.for('IPrismaService'),
-  ITelegrafService: Symbol.for('ITelegrafService'),
+  ITGBOTService: Symbol.for('ITGBOTService'),
   IServerService: Symbol.for('IServerService'),
   ICatalogController: Symbol.for('ICatalogController'),
   IShoppingCartController: Symbol.for('IShoppingCartController'),

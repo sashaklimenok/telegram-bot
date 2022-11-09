@@ -1,12 +1,12 @@
 import { inject, injectable } from 'inversify';
+import { IConfigService } from 'services/config';
 import { Markup, Telegraf } from 'telegraf';
 import { InlineQueryResult } from 'telegraf/typings/core/types/typegram';
 import { injectKeys } from 'types/injectKeys';
-import { IConfigService } from '../config';
-import { ITelegrafService, MyContext } from './telegraf.interface';
+import { ITGBotController, MyContext } from './tg-bot.interface';
 
 @injectable()
-export class TelegrafService implements ITelegrafService {
+export class TGBotController implements ITGBotController {
   bot: Telegraf<MyContext>;
   constructor(@inject(injectKeys.IConfigService) private config: IConfigService) {
     this.bot = new Telegraf<MyContext>(this.config.get('BOT_TOKEN'));

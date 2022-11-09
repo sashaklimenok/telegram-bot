@@ -15,7 +15,7 @@ export interface MyContext extends Context {
   scene: Scenes.SceneContextScene<MyContext, MySessionScene>;
 }
 
-export interface ITelegrafService {
+export interface ITGBotController {
   bot: Telegraf<MyContext>;
   launch(): Promise<void>;
   answerWebQuery(webAppQueryId: string, result: InlineQueryResult): Promise<void>;
