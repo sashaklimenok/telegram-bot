@@ -9,17 +9,19 @@ import { ITelegrafService, TelegrafService } from './services/telegraf';
 import { IServerService, ServerService } from './services/server';
 import {
   CatalogController,
+  CatalogRepository,
+  CatalogService,
   ICatalogController,
-  IShoppingCartController,
-  ShoppingCartController,
-} from './controllers';
+  ICatalogRepository,
+  ICatalogService,
+} from './controllers/catalog';
 import { App } from './App';
-import { IShoppingCartService, ShoppingCartService } from './controllers/shopping-cart/service';
 import { ExceptionFilter, IExceptionFilter } from './errors';
 import { INumberService, NumberService } from 'services/number';
-import { CatalogService, ICatalogService } from 'controllers/catalog/services';
 import { IValidatorMiddleware, ValidatorMiddleware } from 'middlewares';
-import { CatalogRepository, ICatalogRepository } from 'controllers/catalog/repository';
+import { IShoppingCartService } from 'controllers/shopping-cart/interfaces/shopping-cart.service.interface';
+import { ShoppingCartService } from 'controllers/shopping-cart/shopping-cart.service';
+import { IShoppingCartController, ShoppingCartController } from 'controllers/shopping-cart';
 
 //Composition root
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
@@ -31,13 +33,13 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
   bind<IServerService>(injectKeys.IServerService).to(ServerService).inSingletonScope();
   bind<ITelegrafService>(injectKeys.ITelegrafService).to(TelegrafService);
   bind<ICatalogController>(injectKeys.ICatalogController).to(CatalogController);
+  bind<ICatalogService>(injectKeys.ICatalogService).to(CatalogService);
+  bind<ICatalogRepository>(injectKeys.ICatalogRepository).to(CatalogRepository);
   bind<IShoppingCartController>(injectKeys.IShoppingCartController).to(ShoppingCartController);
   bind<IShoppingCartService>(injectKeys.IShoppingCartService).to(ShoppingCartService);
   bind<IExceptionFilter>(injectKeys.IExceptionFilter).to(ExceptionFilter);
   bind<INumberService>(injectKeys.INumberService).to(NumberService);
-  bind<ICatalogService>(injectKeys.ICatalogService).to(CatalogService);
   bind<IValidatorMiddleware>(injectKeys.IValidatorMiddleware).to(ValidatorMiddleware);
-  bind<ICatalogRepository>(injectKeys.ICatalogRepository).to(CatalogRepository);
 });
 
 const bootstrap = (): Record<string, unknown> => {

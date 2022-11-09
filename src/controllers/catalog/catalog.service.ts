@@ -1,9 +1,9 @@
 import { Product } from '@prisma/client';
 import { inject, injectable } from 'inversify';
 import { injectKeys } from 'types';
-import { CatalogEntity } from '../catalog.entity';
-import { ICatalogRepository } from '../repository';
-import { ICatalogService } from './catalog.service.interface';
+import { CatalogEntity } from './catalog.entity';
+import { ICatalogRepository } from './interfaces';
+import { ICatalogService } from './interfaces/catalog.service.interface';
 
 @injectable()
 export class CatalogService implements ICatalogService {

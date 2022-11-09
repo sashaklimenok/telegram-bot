@@ -1,2 +1,2 @@
-export * from './shopping-cart.service';
+export * from './shopping-cart.interface';
 export * from './shopping-cart.service.interface';

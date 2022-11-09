@@ -5,9 +5,10 @@ import express, { Express, json } from 'express';
 import { ILoggerService } from '../logger';
 import { IChalkService } from '../chalk';
 import { IServerService } from './server.interface';
-import { ICatalogController, IShoppingCartController } from 'controllers';
 import cors from 'cors';
 import { IExceptionFilter } from '../../errors';
+import { ICatalogController } from 'controllers/catalog';
+import { IShoppingCartController } from 'controllers/shopping-cart';
 
 @injectable()
 export class ServerService implements IServerService {

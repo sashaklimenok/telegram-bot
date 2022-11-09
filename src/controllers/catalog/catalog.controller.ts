@@ -5,8 +5,8 @@ import { routes } from '../../constants';
 import { IChalkService } from 'services/chalk';
 import { ILoggerService } from 'services/logger';
 import { injectKeys } from 'types';
-import { ICatalogController } from './catalog.interface';
-import { ICatalogService } from './services';
+import { ICatalogController } from './interfaces/catalog.interface';
+import { ICatalogService } from './interfaces';
 
 @injectable()
 export class CatalogController extends Controller implements ICatalogController {

@@ -5,11 +5,11 @@ import { IChalkService } from 'services/chalk';
 import { ILoggerService } from 'services/logger';
 import { ITelegrafService } from 'services/telegraf';
 import { injectKeys } from 'types';
-import { ShoppingCartDto } from './dto';
-import { IShoppingCartService } from './service';
-import { IShoppingCartController } from './shopping-cart.interface';
+import { IShoppingCartController } from './interfaces/shopping-cart.interface';
 import { routes } from '../../constants';
 import { IValidatorMiddleware } from 'middlewares';
+import { ShoppingCartDto } from './shopping-cart-dto';
+import { IShoppingCartService } from './interfaces';
 
 @injectable()
 export class ShoppingCartController extends Controller implements IShoppingCartController {
