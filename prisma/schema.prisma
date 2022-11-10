@@ -12,41 +12,50 @@ datasource db {
 
 //one to many example
 
-model User {
-  name      String
-  id        Int      @id @default(autoincrement())
-  email     String
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-  posts     Post[]
-}
+// model User {
+//   name      String
+//   id        Int      @id @default(autoincrement())
+//   email     String
+//   password  String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt()
+//   posts     Post[]
+// }
 
-model Post {
-  id        Int         @id @default(autoincrement())
-  title     String
-  content   String
-  created   DateTime    @default(now())
-  updatedAy DateTime    @updatedAt
-  authorId  Int
-  author    User        @relation(fields: [authorId], references: [id])
-  tags      PostOnTag[]
-}
+// model Post {
+//   id        Int         @id @default(autoincrement())
+//   title     String
+//   content   String
+//   created   DateTime    @default(now())
+//   updatedAy DateTime    @updatedAt
+//   authorId  Int
+//   author    User        @relation(fields: [authorId], references: [id])
+//   tags      PostOnTag[]
+// }
 
-//many-to-many example
+// //many-to-many example
 
-model Tag {
-  id        Int         @id @default(autoincrement())
-  name      String
-  PostOnTag PostOnTag[]
-}
+// model Tag {
+//   id        Int         @id @default(autoincrement())
+//   name      String
+//   PostOnTag PostOnTag[]
+// }
 
-model PostOnTag {
-  id        Int      @id @default(autoincrement())
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    Int
-  tag       Tag      @relation(fields: [tagId], references: [id])
-  tagId     Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+// model PostOnTag {
+//   id        Int      @id @default(autoincrement())
+//   post      Post     @relation(fields: [postId], references: [id])
+//   postId    Int
+//   tag       Tag      @relation(fields: [tagId], references: [id])
+//   tagId     Int
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt()
+// }
+
+model Product {
+  id          Int    @id @default(autoincrement())
+  title       String
+  price       Float
+  description String
+  category    String
+  image       String
 }
